@@ -2,9 +2,11 @@
   'use strict';
   var gulp = require('gulp'),
       connect = require('gulp-connect'),
-      open = require('gulp-open');
+      open = require('gulp-open'),
+      del = require('del');
 
   var paths = {
+    dest: 'dist',
     temp: '_tmp'
   };
 
@@ -25,9 +27,18 @@
     .pipe(open('', { url: 'http://localhost:1336' }));
   });
 
+  gulp.task('clean', function () {
+    del([paths.dest, paths.temp]);
+  });
+
+  gulp.task('copy_to_dist', ['clean'], function(){
+    gulp.src(['app/index.html'], { base: 'app/' })
+    .pipe(gulp.dest(paths.dest));
+  });
+
+  gulp.task('build', ['copy_to_dist']);
+
   gulp.task('serve', ['open']);
 
-  gulp.task('default', function() {
-    // place code for your default task here
-  });
+  gulp.task('default', ['build']);
 })();

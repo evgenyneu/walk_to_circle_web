@@ -54,7 +54,7 @@
   });
 
   gulp.task('copy_app_to_dist', function(){
-    gulp.src(['app/index.html', 'app/images/**/*'], { base: 'app/' })
+    gulp.src(['app/index.html', 'app/images/**/*', 'app/favicon.ico'], { base: 'app/' })
     .pipe(gulp.dest(paths.dest));
   });
 

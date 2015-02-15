@@ -4,14 +4,23 @@
       connect = require('gulp-connect'),
       open = require('gulp-open'),
       del = require('del'),
-      shell = require('gulp-shell');
+      shell = require('gulp-shell'),
+      autoprefixer = require('gulp-autoprefixer'),
+      sass = require('gulp-sass');
 
   var paths = {
     dest: 'dist',
     temp: '_tmp'
   };
 
-  gulp.task('connect', function() {
+  gulp.task('sass', function () {
+    gulp.src('app/scss/app.scss')
+      .pipe(sass())
+      .pipe(autoprefixer(['> 1%', 'last 2 versions'], { cascade: true }))
+      .pipe(gulp.dest(paths.temp + '/css'));
+  });
+
+  gulp.task('connect', ['sass'], function() {
     connect.server({
       root: ['app', paths.temp],
       port: 1336,
@@ -24,7 +33,7 @@
   });
 
   gulp.task('watch', function() {
-    gulp.watch(['app/*.html', 'app/css/*'], ['html']);
+    gulp.watch(['app/*.html', 'app/scss/**/*'], ['html']);
   });
 
   gulp.task('open', ['connect', 'watch'], function(){

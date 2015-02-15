@@ -1,7 +1,3 @@
-# Overview
-
-[walktocircle.com](http://walktocircle.com) website.
-
 ## Development
 
 After cloning the github repo into a dir:

@@ -28,7 +28,7 @@
     });
   });
 
-  gulp.task('html', function() {
+  gulp.task('html', ['sass'], function() {
     gulp.src('./app/*.html').pipe(connect.reload());
   });
 

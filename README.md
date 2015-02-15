@@ -1,3 +1,21 @@
 # Overview
 
-This repository contains code for [walktocircle.com](http://walktocircle.com) website.
+[walktocircle.com](http://walktocircle.com) website.
+
+## Development
+
+After cloning the github repo into a dir:
+
+    npm install
+
+Demo in browser:
+
+    gulp serve
+
+Build:
+
+    gulp
+
+Deploy:
+
+    gulp deploy

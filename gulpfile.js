@@ -6,7 +6,8 @@
       del = require('del'),
       shell = require('gulp-shell'),
       autoprefixer = require('gulp-autoprefixer'),
-      sass = require('gulp-sass');
+      sass = require('gulp-sass'),
+      minifyCss = require('gulp-minify-css');
 
   var paths = {
     dest: 'dist',
@@ -17,6 +18,7 @@
     gulp.src('app/scss/app.scss')
       .pipe(sass())
       .pipe(autoprefixer(['> 1%', 'last 2 versions'], { cascade: true }))
+      .pipe(minifyCss({ keepBreaks: true }))
       .pipe(gulp.dest(paths.temp + '/css'));
   });
 

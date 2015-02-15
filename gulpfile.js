@@ -3,7 +3,8 @@
   var gulp = require('gulp'),
       connect = require('gulp-connect'),
       open = require('gulp-open'),
-      del = require('del');
+      del = require('del'),
+      shell = require('gulp-shell');
 
   var paths = {
     dest: 'dist',
@@ -18,8 +19,12 @@
     });
   });
 
+  gulp.task('html', function() {
+    gulp.src('./app/*.html').pipe(connect.reload());
+  });
+
   gulp.task('watch', function() {
-    gulp.watch(['app/*.html', 'app/scss/**/*', 'app/js/**/*'], ['html']);
+    gulp.watch(['app/*.html', 'app/css/*'], ['html']);
   });
 
   gulp.task('open', ['connect', 'watch'], function(){
@@ -32,9 +37,14 @@
   });
 
   gulp.task('copy_to_dist', ['clean'], function(){
-    gulp.src(['app/index.html'], { base: 'app/' })
+    gulp.src(['app/index.html', 'app/images/**/*'], { base: 'app/' })
     .pipe(gulp.dest(paths.dest));
   });
+
+  gulp.task('deploy', ['build'], shell.task([
+    'rsync -rvz dist/ pi:walktocircle.com',
+    'echo world'
+  ]));
 
   gulp.task('build', ['copy_to_dist']);
 

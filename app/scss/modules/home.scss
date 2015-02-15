@@ -1,9 +1,14 @@
 .Home-header { margin: 1em 0 0.7em 0; }
 
-.Home-logoLink {
-  text-decoration: none;
-}
+.Home-logoLink { text-decoration: none; }
 
 .Home-logo {
   margin-bottom: 1.5em;
+  width: 250px;
+  height: 250px;
+}
+
+.Home-appstoreBadge {
+  width: 203px;
+  height: 60px;
 }

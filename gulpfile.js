@@ -7,7 +7,8 @@
       shell = require('gulp-shell'),
       autoprefixer = require('gulp-autoprefixer'),
       sass = require('gulp-sass'),
-      minifyCss = require('gulp-minify-css');
+      minifyCss = require('gulp-minify-css'),
+      runSequence = require('run-sequence');
 
   var paths = {
     dest: 'dist',
@@ -47,7 +48,12 @@
     del([paths.dest, paths.temp]);
   });
 
-  gulp.task('copy_to_dist', ['clean'], function(){
+  gulp.task('copy_css_to_dist', ['sass'], function(){
+    gulp.src(['_tmp/css/app.css'])
+    .pipe(gulp.dest(paths.dest + '/css'));
+  });
+
+  gulp.task('copy_app_to_dist', function(){
     gulp.src(['app/index.html', 'app/images/**/*'], { base: 'app/' })
     .pipe(gulp.dest(paths.dest));
   });
@@ -57,7 +63,9 @@
     'echo world'
   ]));
 
-  gulp.task('build', ['copy_to_dist']);
+  gulp.task('build', function() {
+    runSequence('clean', ['copy_app_to_dist', 'copy_css_to_dist']);
+  });
 
   gulp.task('serve', ['open']);
 

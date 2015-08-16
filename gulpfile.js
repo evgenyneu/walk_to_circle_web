@@ -64,7 +64,7 @@
   // ]));
 
   gulp.task('deploy', ['build'], shell.task([
-    'rsync -rvz dist/ arvixe:public_html/evgenii.com',
+    'rsync -rvz dist/ arvixe:public_html/walktocircle.com',
     'echo world'
   ]));
 

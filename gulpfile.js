@@ -58,8 +58,13 @@
     .pipe(gulp.dest(paths.dest));
   });
 
+  // gulp.task('deploy', ['build'], shell.task([
+  //   'rsync -rvz dist/ pi:walktocircle.com',
+  //   'echo world'
+  // ]));
+
   gulp.task('deploy', ['build'], shell.task([
-    'rsync -rvz dist/ pi:walktocircle.com',
+    'rsync -rvz dist/ arvixe:public_html/evgenii.com',
     'echo world'
   ]));
 

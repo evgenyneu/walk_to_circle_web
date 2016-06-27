@@ -10,7 +10,7 @@
     "gulp-open": "^0.3.2",
     "gulp-sass": "^2.3.2",
     "gulp-shell": "^0.3.0",
-    "run-sequence": "^1.0.2"
+    "run-sequence": "^1.2.1"
   },
   "dependencies": {}
 }

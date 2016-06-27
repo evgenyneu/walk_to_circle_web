@@ -2,7 +2,7 @@
   "name": "walk_to_circle_web",
   "version": "0.0.1",
   "devDependencies": {
-    "del": "^1.1.1",
+    "del": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-connect": "^4.1.0",

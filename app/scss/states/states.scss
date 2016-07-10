@@ -1,1 +1,6 @@
 .is-textCentered { text-align: center; }
+
+.hasSidePadding {
+  padding-left: $contentSizePadding;
+  padding-right: $contentSizePadding;
+}

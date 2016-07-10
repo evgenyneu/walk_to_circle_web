@@ -7,7 +7,6 @@ html, body {
 
 body {
   font-family: Optima, Candara, Helvetica, Arial, sans-serif;
-  text-align: center;
   color: $shade100;
   background-color: $shade40;
   text-shadow: 1px 0px 2px $shade20;
@@ -17,8 +16,6 @@ a { color: $shade70; }
 
 p {
   margin: 1.5em 0;
-  padding-left: $contentSizePadding;
-  padding-right: $contentSizePadding;
   text-align: justify;
 }
 
@@ -29,9 +26,6 @@ p {
 
 h1, h2 {
   margin: 1.5em 0 0.6em 0;
-  font-weight:400;
-  padding-left: $contentSizePadding;
-  padding-right: $contentSizePadding;
 }
 
 h1 { font-size: 2em; }
@@ -39,5 +33,15 @@ h1 { font-size: 2em; }
 h2 {
   font-size: 1.8em;
   text-align: left;
+}
+
+h3 {
+  margin-top: 2em;
+  font-size: 1.3em;
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight:400;
 }
 
